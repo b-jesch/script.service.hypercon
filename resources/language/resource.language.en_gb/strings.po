@@ -1,0 +1,118 @@
+# XBMC Media Center language file
+# Addon Name: resource.language.de_de Hyperion Service
+# Addon id: script.service.hyperion
+# Addon version: 0.0.1
+# Addon Provider: Birger Jesch
+msgid ""
+msgstr ""
+"Project-Id-Version: XBMC-Addons\n"
+"Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
+"POT-Creation-Date: 2016-09-06 08:37+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgctxt "Addon Summary"
+msgid "Control Your Hyperion Ambilight"
+msgstr ""
+
+msgctxt "Addon Description"
+msgid ""
+msgstr ""
+
+msgctxt "#32010"
+msgid "General Settings"
+msgstr ""
+
+msgctxt "#32011"
+msgid "Hyperion"
+msgstr ""
+
+msgctxt "#32012"
+msgid "Choose Actions when:"
+msgstr ""
+
+msgctxt "#32013"
+msgid "Mood Color Settings"
+msgstr ""
+
+msgctxt "#32020"
+msgid "IP Address"
+msgstr ""
+
+msgctxt "#32021"
+msgid "Port"
+msgstr ""
+
+msgctxt "#32022"
+msgid "Authorize Token"
+msgstr ""
+
+msgctxt "#32025"
+msgid "Enable Hyperion on Startup"
+msgstr ""
+
+msgctxt "#32026"
+msgid "Disable Hyperion on Shutdown"
+msgstr ""
+
+msgctxt "#32030"
+msgid "Video is playing"
+msgstr ""
+
+msgctxt "#32031"
+msgid "Detect 3D Video"
+msgstr ""
+
+msgctxt "#32032"
+msgid "Audio is playing"
+msgstr ""
+
+msgctxt "#32033"
+msgid "Media is pausing"
+msgstr ""
+
+msgctxt "#32034"
+msgid "Menues are showing"
+msgstr ""
+
+msgctxt "#32035"
+msgid "Screensaver is running"
+msgstr ""
+
+msgctxt "#32040"
+msgid "Moodlight Color 1"
+msgstr ""
+
+msgctxt "#32041"
+msgid "Moodlight Color 2"
+msgstr ""
+
+msgctxt "#32042"
+msgid "Moodlight Color 3"
+msgstr ""
+
+msgctxt "#32050"
+msgid "Hyperion"
+msgstr ""
+
+msgctxt "#32051"
+msgid "Moodlight 1"
+msgstr ""
+
+msgctxt "#32052"
+msgid "Moodlight 2"
+msgstr ""
+
+msgctxt "#32053"
+msgid "Moodlight 3"
+msgstr ""
+
+msgctxt "#32054"
+msgid "off"
+msgstr ""

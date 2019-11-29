@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.service.hypercon" name="Hyperion Controller" version="0.0.1" provider-name="Birger Jesch">
+  <requires>
+    <import addon="xbmc.python" version="2.25.0"/>
+    <import addon="script.module.httplib2" version="0.8.0"/>
+    <import addon="script.skin.helper.colorpicker" version="1.0.11"/>
+    <import addon="script.module.pil" version="1.1.7" />
+  </requires>
+  <extension point="xbmc.service" library="service.py" start="startup|login" />
+  <extension point="xbmc.python.script" library="default.py" />
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary lang="en_GB">Control your Ambilight within Kodi</summary>
+    <summary lang="de_DE">Steuere Dein Ambilight von Kodi aus</summary>
+    <description lang="en_GB">Define various Ambilight and Moodlight Effects while playing different Media Types in Kodi. Switch Your Hyperion On or Off when Kodi is started or stopped.</description>
+    <description lang="de_DE"></description>
+    <disclaimer lang="en_GB"></disclaimer>
+    <disclaimer lang="de_DE"></disclaimer>
+    <license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>
+    <forum></forum>
+    <website></website>
+    <email>birger.jesch@gmail.com</email>
+    <source>https://github.com/b-jesch/script.service.hypercon</source>
+    <news>
+0.0.1:  Initial Commit
+    </news>
+    <assets>
+        <icon>icon.png</icon>
+        <fanart>fanart.jpg</fanart>
+        <screenshot></screenshot>
+        <screenshot></screenshot>
+    </assets>
+  </extension>
+</addon>

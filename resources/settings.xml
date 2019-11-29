@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	<category label="32010">
+		<setting id="ip" type="ipaddress" label="32020" default="127.0.0.1" />
+		<setting id="port" type="number" label="32021" default="8090" />
+        <setting id="authToken" type="text" label="32022" default="" visible="true" />
+        <setting type="lsep" label="32011" />
+		<setting id="enableHyperion" type="bool" label="32025" default="false" />
+		<setting id="disableHyperion" type="bool" label="32026" default="false" />
+        <setting type="lsep" label="32012" />
+		<setting id="videoMode" type="enum" label="32030" default="0" lvalues="32050|32051|32052|32053|32054" />
+		<setting id="detection_3d" type="bool" label="32031" default="false" enable="eq(-1,true)" />
+		<setting id="audioMode" type="enum" label="32032" default="0" lvalues="32050|32051|32052|32053|32054" />
+		<setting id="pauseMode" type="enum" label="32033" default="4" lvalues="32050|32051|32052|32053|32054" />
+		<setting id="menuMode" type="enum" label="32034" default="4" lvalues="32050|32051|32052|32053|32054" />
+		<setting id="screenSaverMode" type="enum" label="32035" default="4"  lvalues="32050|32051|32052|32053|32054" />
+	</category>
+    <category label="32013">
+        <setting id="moodcolor_1" type="action" label="32040" default="#808000" option="close"
+                 action="RunScript(script.skin.helper.colorpicker,winproperty=moodcolor_1)" />
+        <setting id="moodcolor_2" type="action" label="32041" default="#800080" option="close"
+                 action="RunScript(script.skin.helper.colorpicker,winproperty=moodcolor_2)" />
+        <setting id="moodcolor_3" type="action" label="32042" default="#008080" option="close"
+                 action="RunScript(script.skin.helper.colorpicker,winproperty=moodcolor_3)" />
+    </category>
+</settings>
