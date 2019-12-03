@@ -47,6 +47,9 @@ class Hyperion(object):
         self.kl = KodiLib()
         self.stereomode = None
 
+        if not os.path.exists(os.path.join(ADDON_PATH, 'resources', 'media')):
+            os.mkdir(os.path.join(ADDON_PATH, 'resources', 'media'))
+
         xbmcgui.Window(10000).setProperty('moodcolor_1', self.kl.getAddonSetting('moodcolor_1'))
         xbmcgui.Window(10000).setProperty('moodcolor_2', self.kl.getAddonSetting('moodcolor_2'))
         xbmcgui.Window(10000).setProperty('moodcolor_3', self.kl.getAddonSetting('moodcolor_3'))
@@ -69,12 +72,10 @@ class Hyperion(object):
         self.port = self.kl.getAddonSetting('port')
         self.enableHyperion = self.kl.getAddonSetting('enableHyperion', sType=BOOL)
         self.disableHyperion = self.kl.getAddonSetting('disableHyperion', sType=BOOL)
-        self.authToken = self.kl.getAddonSetting('authToken')
 
         self.connection = Connection(self.ip, self.port)
 
         self.opt_videoMode = self.kl.getAddonSetting('videoMode')
-        self.detection_3d = self.kl.getAddonSetting('detection_3d')
         self.opt_audioMode = self.kl.getAddonSetting('audioMode')
         self.opt_pauseMode = self.kl.getAddonSetting('pauseMode')
         self.opt_menuMode = self.kl.getAddonSetting('menuMode')
@@ -93,9 +94,7 @@ class Hyperion(object):
         self.kl.writeLog('Host:                 %s:%s' % (self.ip, self.port))
         self.kl.writeLog('Enable Hyp. on Start: %s' % self.enableHyperion)
         self.kl.writeLog('Disable Hyp. on Stop: %s' % self.disableHyperion)
-        self.kl.writeLog('Auth Token:           %s' % self.authToken)
         self.kl.writeLog('Video Mode:           %s' % self.opt_videoMode)
-        self.kl.writeLog('3D Autodetection:     %s' % self.detection_3d)
         self.kl.writeLog('Audio Mode:           %s' % self.opt_audioMode)
         self.kl.writeLog('Pause Mode:           %s' % self.opt_pauseMode)
         self.kl.writeLog('Menu Mode:            %s' % self.opt_menuMode)
@@ -106,21 +105,24 @@ class Hyperion(object):
 
 
     def start(self):
+        self.kl.writeLog('Starting Hyperion service script', xbmc.LOGNOTICE)
+        if self.enableHyperion: self.kl.writeLog('Hyperion cmd clearall: %s' % self.connection.clearAll())
         while not self.monitor.abortRequested():
             if self.monitor.waitForAbort(1):
-                if self.disableHyperion: self.connection.sendComponentState('ALL', False)
+                if self.disableHyperion: self.kl.writeLog('Hyperion cmd clearall: %s' % self.connection.sendColor('#000000'))
                 break
             if self.monitor.settingsChanged: self.getSettings()
             self.checkColors()
+            '''
             mode = self.kl.jsonrpc({"method": "GUI.GetProperties", "params": {"properties": ["stereoscopicmode"]}})
             if mode['stereoscopicmode']['mode'] != self.stereomode:
                 self.stereomode = mode['stereoscopicmode']['mode']
                 self.connection.sendVideoMode({'split_horizontal': '3DTAB',
                                                'split_vertical': '3DSBS',
-                                               'off': '2D'}.get(self.stereomode, 'off'))
+                                               'off': '2D'}.get(self.stereomode, 'unknown'))
 
                 self.kl.writeLog('View mode changed to: %s' % self.stereomode)
-
+            '''
 
 if __name__ == '__main__':
         hyperion = Hyperion()

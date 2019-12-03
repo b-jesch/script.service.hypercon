@@ -46,11 +46,7 @@ msgid "IP Address"
 msgstr ""
 
 msgctxt "#32021"
-msgid "Port"
-msgstr ""
-
-msgctxt "#32022"
-msgid "Authorize Token"
+msgid "JSON Server Port"
 msgstr ""
 
 msgctxt "#32025"
@@ -63,10 +59,6 @@ msgstr ""
 
 msgctxt "#32030"
 msgid "Video is playing"
-msgstr ""
-
-msgctxt "#32031"
-msgid "Detect 3D Video"
 msgstr ""
 
 msgctxt "#32032"
