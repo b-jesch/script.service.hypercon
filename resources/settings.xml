@@ -16,11 +16,11 @@
 		<setting id="screenSaverMode" type="enum" label="32035" default="4"  lvalues="32050|32051|32052|32053|32054" />
 	</category>
     <category label="32013">
-        <setting id="moodcolor_1" type="action" label="32040" default="#808000" option="close"
+        <setting id="moodcolor_1" type="action" label="32040" default="ff808000" option="close"
                  action="RunScript(script.skin.helper.colorpicker,winproperty=moodcolor_1)" />
-        <setting id="moodcolor_2" type="action" label="32041" default="#800080" option="close"
+        <setting id="moodcolor_2" type="action" label="32041" default="ff800080" option="close"
                  action="RunScript(script.skin.helper.colorpicker,winproperty=moodcolor_2)" />
-        <setting id="moodcolor_3" type="action" label="32042" default="#008080" option="close"
+        <setting id="moodcolor_3" type="action" label="32042" default="ff008080" option="close"
                  action="RunScript(script.skin.helper.colorpicker,winproperty=moodcolor_3)" />
     </category>
 </settings>

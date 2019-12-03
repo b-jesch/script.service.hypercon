@@ -5,13 +5,16 @@ import xbmc
 import json
 import re
 import platform
+import os
 
 from contextlib import contextmanager
+from PIL import Image
 
 ADDON = xbmcaddon.Addon()
 ADDON_ID = ADDON.getAddonInfo('id')
 ADDON_NAME = ADDON.getAddonInfo('name')
 ADDON_VERSION = ADDON.getAddonInfo('version')
+ADDON_PATH = xbmc.translatePath(ADDON.getAddonInfo('path'))
 
 # Constants
 
@@ -184,3 +187,24 @@ class KlProgressBar(object):
 
         self.pb.close()
         return self.iscanceled
+
+
+def createImage(width, height, rgbColor, path):
+    """
+    Creates an RGB image and store it into path
+    :param width:       width of image in pixel
+    :param height:      height of image in pixel
+    :param rgbColor:    color of the background in #RRGGBB hex notation
+    :param path:        Path/Name of image
+    :return:            True if successful
+    """
+
+    if os.path.exists(path): return path
+    rgb = rgbColor.lstrip('#')
+    # skip transparency
+    if len(rgb) == 8: rgb = rgb[2:8]
+    lv = len(rgb)
+    color = tuple(int(rgb[i:i + lv / 3], 16) for i in range(0, lv, lv / 3))
+    img = Image.new('RGB', (width, height), color)
+    img.save(path, format='PNG')
+    return path
