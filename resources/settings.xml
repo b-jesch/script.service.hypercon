@@ -20,5 +20,7 @@
                  action="RunScript(script.skin.helper.colorpicker,winproperty=moodcolor_2)" />
         <setting id="moodcolor_3" type="action" label="32042" default="FF008080" option="close"
                  action="RunScript(script.skin.helper.colorpicker,winproperty=moodcolor_3)" />
+		<setting type="sep" />
+		<setting type="action" label="32043" option="close" action="RunScript(script.service.hypercon)" />
     </category>
 </settings>

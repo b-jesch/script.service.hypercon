@@ -15,6 +15,7 @@ ADDON_ID = ADDON.getAddonInfo('id')
 ADDON_NAME = ADDON.getAddonInfo('name')
 ADDON_VERSION = ADDON.getAddonInfo('version')
 ADDON_PATH = xbmc.translatePath(ADDON.getAddonInfo('path'))
+LS = ADDON.getLocalizedString
 
 # Constants
 
@@ -91,6 +92,9 @@ class KodiLib(object):
     several Kodi routines and functions
     '''
 
+    def __init__(self):
+        self.OSD = xbmcgui.Dialog()
+
     def __strToBool(self, par):
         return True if par.upper() == 'TRUE' else False
 
@@ -122,6 +126,11 @@ class KodiLib(object):
                 return 0
         else:
             return ADDON.getSetting(setting)
+
+
+    def notifyOSD(self, header, message, time=5000, icon=xbmcgui.NOTIFICATION_INFO):
+        self.OSD.notification(LS(header).enode('utf-8'), LS(message).encode('utf-8', icon, time))
+
 
     '''
     creates a replacement for busy dialog in Kodi V.18 (Leia) build a wrapper function for this. The wrapper

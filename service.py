@@ -1,7 +1,6 @@
 from resources.lib.toollib import *
 from resources.lib.connection import Connection
 
-EXT = '.png'
 
 class Player(xbmc.Player):
     def __init__(self):
@@ -106,23 +105,15 @@ class Hyperion(object):
 
     def start(self):
         self.kl.writeLog('Starting Hyperion service script', xbmc.LOGNOTICE)
-        if self.enableHyperion: self.kl.writeLog('Hyperion cmd clearall: %s' % self.connection.clearAll())
+        self.connection.getActiveEffects()
+
+        if self.enableHyperion: self.connection.clearAll()
         while not self.monitor.abortRequested():
             if self.monitor.waitForAbort(1):
-                if self.disableHyperion: self.kl.writeLog('Hyperion cmd clearall: %s' % self.connection.sendColor('#000000'))
+                if self.disableHyperion: self.connection.setColor('#000000')
                 break
             if self.monitor.settingsChanged: self.getSettings()
             self.checkColors()
-            '''
-            mode = self.kl.jsonrpc({"method": "GUI.GetProperties", "params": {"properties": ["stereoscopicmode"]}})
-            if mode['stereoscopicmode']['mode'] != self.stereomode:
-                self.stereomode = mode['stereoscopicmode']['mode']
-                self.connection.sendVideoMode({'split_horizontal': '3DTAB',
-                                               'split_vertical': '3DSBS',
-                                               'off': '2D'}.get(self.stereomode, 'unknown'))
-
-                self.kl.writeLog('View mode changed to: %s' % self.stereomode)
-            '''
 
 if __name__ == '__main__':
         hyperion = Hyperion()

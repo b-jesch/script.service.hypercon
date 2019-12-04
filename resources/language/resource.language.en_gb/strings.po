@@ -25,6 +25,10 @@ msgctxt "Addon Description"
 msgid ""
 msgstr ""
 
+msgctxt "#32000"
+msgid "Hypercon Controller"
+msgstr ""
+
 msgctxt "#32010"
 msgid "General Settings"
 msgstr ""
@@ -34,7 +38,7 @@ msgid "Hyperion"
 msgstr ""
 
 msgctxt "#32012"
-msgid "Choose Actions when:"
+msgid "Perform Actions when:"
 msgstr ""
 
 msgctxt "#32013"
@@ -89,6 +93,10 @@ msgctxt "#32042"
 msgid "Moodlight Color 3"
 msgstr ""
 
+msgctxt "#32043"
+msgid "Check Moodlight Colors"
+msgstr ""
+
 msgctxt "#32050"
 msgid "Hyperion"
 msgstr ""
@@ -107,4 +115,10 @@ msgstr ""
 
 msgctxt "#32054"
 msgid "off"
+msgstr ""
+
+# Error Messages
+
+msgctxt "#32060"
+msgid "No Connection to Hyperion Server"
 msgstr ""

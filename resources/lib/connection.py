@@ -11,30 +11,41 @@ class Connection(object):
         self.__url = 'ws://%s:%s' % (ip, port)
 
     def send(self, payload):
-        self.__ws = websocket.create_connection(self.__url, timeout=3)
         try:
+            self.__ws = websocket.create_connection(self.__url, timeout=3)
             self.__kl.writeLog('send %s' % payload)
             self.__ws.send(payload)
-            response = self.__ws.recv()
+            response = json.loads(self.__ws.recv(), encoding='utf-8')
             self.__ws.close()
-            return json.loads(response, encoding='utf-8')
+            return (bool(response.get('success', False)), response.get('info', response.get('error', '')))
+
         except websocket.error:
-            pass
+            self.__kl.notifyOSD(32000, 32060)
 
-    def sendComponentState(self, component, state):
-        self.send('{"command":"componentstate", "componentstate":{"component":"%s", "state":"%s"}}' % (component, state))
+        return False
 
-    def sendVideoMode(self, mode):
-        self.send('{"command": "videoMode", "videoMode": "%s"}' % mode)
+    def getActiveEffects(self):
+        success, response = self.send('{"command": "serverinfo"}')
+        if success:
+            _ae = False
+            for effect in response['activeEffects']:
+                self.__kl.writeLog('active effect: %s' % effect.get('name', None))
+                _ae = True
+            if not _ae: self.__kl.writeLog('no active Effects')
 
-    def sendServerInfo(self):
-        self.send('{"command": "serverinfo"}')
+            _al = False
+            for led in response['activeLedColor']:
+                self.__kl.writeLog('active LED color: %s' % led.get('HEX Value', None))
+                _al = True
+            if not _al: self.__kl.writeLog('no active LEDs')
+
+    def Clear(self, priority=100):
+        self.__kl.writeLog('success: %s %s' % self.send('{"command": "effect", "effect": {"name": "clear"}, "priority": %s}' % priority))
 
     def clearAll(self):
-        response = self.send('{"command": "clearall"}')
-        return bool(response.get('success', False))
+        self.__kl.writeLog('success: %s %s' % self.send('{"command": "clearall"}'))
 
-    def sendColor(self, rgbcolor, priority=100):
+    def setColor(self, rgbcolor, priority=100):
 
         # skip leading '#' and transparency
 
@@ -42,5 +53,5 @@ class Connection(object):
         if len(rgbcolor) > 6: rgbcolor = rgbcolor[-6:]
 
         red, green, blue = tuple(int(rgbcolor[i:i + 2], 16) for i in range(0, 6, 2))
-        response = self.send('{"command": "color", "priority":%s, "color": [%s, %s, %s]}' % (priority, red, green, blue))
-        return bool(response.get('success', False))
+        self.__kl.writeLog('success: %s %s' %
+                           self.send('{"command": "color", "priority": %s, "color": [%s, %s, %s]}' % (priority, red, green, blue)))
