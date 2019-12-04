@@ -20,6 +20,10 @@ if __name__ == '__main__':
 
     actions = []
 
+    li = xbmcgui.ListItem(label=LS(32043), label2=LS(32044), iconImage=os.path.join(ADDON_PATH, 'icon.png'))
+    li.setProperty('action', 'clearall')
+    li.setProperty('param', '100')
+    actions.append(li)
     li = xbmcgui.ListItem(label=LS(32040), label2=moodcolor_1, iconImage=icon_1)
     li.setProperty('action', 'setcolor')
     li.setProperty('param', moodcolor_1)
@@ -32,11 +36,6 @@ if __name__ == '__main__':
     li.setProperty('action', 'setcolor')
     li.setProperty('param', moodcolor_3)
     actions.append(li)
-    li = xbmcgui.ListItem(label=LS(32043), label2=LS(32044), iconImage=os.path.join(ADDON_PATH, 'icon.png'))
-    li.setProperty('action', 'clearall')
-    li.setProperty('param', '100')
-    actions.append(li)
-
 
     dialog = xbmcgui.Dialog()
     _idx = dialog.select(LS(32000), actions, useDetails=True)

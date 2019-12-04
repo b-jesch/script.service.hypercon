@@ -102,11 +102,11 @@ msgid "Moodlight Color 3"
 msgstr ""
 
 msgctxt "#32043"
-msgid "(Re)start Ambilight"
+msgid "Return to Ambilight"
 msgstr ""
 
 msgctxt "#32044"
-msgid "Reset all Colors and Effects"
+msgid "Clear all Colors and Effects"
 msgstr ""
 
 msgctxt "#32045"
