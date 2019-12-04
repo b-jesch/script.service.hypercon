@@ -129,7 +129,7 @@ class KodiLib(object):
 
 
     def notifyOSD(self, header, message, time=5000, icon=xbmcgui.NOTIFICATION_INFO):
-        self.OSD.notification(LS(header).enode('utf-8'), LS(message).encode('utf-8', icon, time))
+        self.OSD.notification(LS(header).encode('utf-8'), LS(message).encode('utf-8'), icon, time)
 
 
     '''

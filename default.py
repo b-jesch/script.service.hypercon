@@ -18,21 +18,34 @@ icon_3 = os.path.join(ADDON_PATH, 'resources', 'media', moodcolor_3)
 
 if __name__ == '__main__':
 
-    colors = []
+    actions = []
 
     li = xbmcgui.ListItem(label=LS(32040), label2=moodcolor_1, iconImage=icon_1)
-    li.setProperty('color', moodcolor_1)
-    colors.append(li)
+    li.setProperty('action', 'setcolor')
+    li.setProperty('param', moodcolor_1)
+    actions.append(li)
     li = xbmcgui.ListItem(label=LS(32041), label2=moodcolor_2, iconImage=icon_2)
-    li.setProperty('color', moodcolor_2)
-    colors.append(li)
+    li.setProperty('action', 'setcolor')
+    li.setProperty('param', moodcolor_2)
+    actions.append(li)
     li = xbmcgui.ListItem(label=LS(32042), label2=moodcolor_3, iconImage=icon_3)
-    li.setProperty('color', moodcolor_3)
-    colors.append(li)
+    li.setProperty('action', 'setcolor')
+    li.setProperty('param', moodcolor_3)
+    actions.append(li)
+    li = xbmcgui.ListItem(label=LS(32043), label2=LS(32044), iconImage=os.path.join(ADDON_PATH, 'icon.png'))
+    li.setProperty('action', 'clearall')
+    li.setProperty('param', '100')
+    actions.append(li)
 
 
     dialog = xbmcgui.Dialog()
-    _idx = dialog.select(LS(32000), colors, useDetails=True)
+    _idx = dialog.select(LS(32000), actions, useDetails=True)
     if _idx > -1:
-        kl.writeLog('set color to %s' % colors[_idx].getProperty('color'))
-        connection.setColor(colors[_idx].getProperty('color'))
+        action = actions[_idx].getProperty('action')
+        param = actions[_idx].getProperty('param')
+        print action, param
+
+        if action == 'setcolor': connection.setColor(param)
+        elif action == 'clearall': connection.clearAll()
+        else:
+            kl.writeLog('unknown parameter', xbmc.LOGERROR)

@@ -1,4 +1,5 @@
 import websocket
+import socket
 import json
 from toollib import KodiLib
 
@@ -17,12 +18,12 @@ class Connection(object):
             self.__ws.send(payload)
             response = json.loads(self.__ws.recv(), encoding='utf-8')
             self.__ws.close()
-            return (bool(response.get('success', False)), response.get('info', response.get('error', '')))
+            return (bool(response.get('success', False)), response.get('info', response.get('error', None)))
 
-        except websocket.error:
+        except (websocket.error, socket.timeout):
             self.__kl.notifyOSD(32000, 32060)
 
-        return False
+        return (False, None)
 
     def getActiveEffects(self):
         success, response = self.send('{"command": "serverinfo"}')

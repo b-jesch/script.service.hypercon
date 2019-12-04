@@ -7,20 +7,29 @@
 		<setting id="enableHyperion" type="bool" label="32025" default="true" />
 		<setting id="disableHyperion" type="bool" label="32026" default="true" />
         <setting type="lsep" label="32012" />
-		<setting id="videoMode" type="enum" label="32030" default="0" lvalues="32050|32051|32052|32053|32054" />
-		<setting id="audioMode" type="enum" label="32032" default="0" lvalues="32050|32051|32052|32053|32054" />
-		<setting id="pauseMode" type="enum" label="32033" default="4" lvalues="32050|32051|32052|32053|32054" />
-		<setting id="menuMode" type="enum" label="32034" default="4" lvalues="32050|32051|32052|32053|32054" />
-		<setting id="screenSaverMode" type="enum" label="32035" default="4"  lvalues="32050|32051|32052|32053|32054" />
+		<setting id="videoMode" type="enum" label="32030" default="0" lvalues="32050|32051|32052|32053|32054|32055|32056|32057" />
+		<setting id="audioMode" type="enum" label="32032" default="0" lvalues="32050|32051|32052|32053|32054|32055|32056|32057" />
+		<setting id="pauseMode" type="enum" label="32033" default="7" lvalues="32050|32051|32052|32053|32054|32055|32056|32057" />
+		<setting id="menuMode" type="enum" label="32034" default="7" lvalues="32050|32051|32052|32053|32054|32055|32056|32057" />
+		<setting id="screenSaverMode" type="enum" label="32035" default="7" lvalues="32050|32051|32052|32053|32054|32055|32056|32057" />
 	</category>
     <category label="32013">
+		<setting type="lsep" label="32014" />
         <setting id="moodcolor_1" type="action" label="32040" default="FF808000" option="close"
                  action="RunScript(script.skin.helper.colorpicker,winproperty=moodcolor_1)" />
         <setting id="moodcolor_2" type="action" label="32041" default="FF800080" option="close"
                  action="RunScript(script.skin.helper.colorpicker,winproperty=moodcolor_2)" />
         <setting id="moodcolor_3" type="action" label="32042" default="FF008080" option="close"
                  action="RunScript(script.skin.helper.colorpicker,winproperty=moodcolor_3)" />
+		<setting type="lsep" label="32015" />
+		<setting id="effect_1" type="action" label="32045" default="None" option="close"
+				 action="RunScript(script.service.hypercon,action=get_effects)" />
+		<setting id="effect_2" type="action" label="32046" default="None" option="close"
+				 action="RunScript(script.service.hypercon,action=get_effects)" />
+		<setting id="effect_3" type="action" label="32047" default="None" option="close"
+				 action="RunScript(script.service.hypercon,action=get_effects)" />
 		<setting type="sep" />
-		<setting type="action" label="32043" option="close" action="RunScript(script.service.hypercon)" />
+		<setting type="action" label="32049" option="close"
+				 action="RunScript(script.service.hypercon,action=check)" />
     </category>
 </settings>

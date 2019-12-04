@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.service.hypercon" name="Hyperion Controller" version="0.0.1" provider-name="Birger Jesch">
+<addon id="script.service.hypercon" name="Hyperion Controller Service" version="0.0.1" provider-name="Birger Jesch">
   <requires>
     <import addon="xbmc.python" version="2.25.0"/>
-    <import addon="script.skin.helper.colorpicker" version="1.0.11"/>
+    <import addon="script.skin.helper.colorpicker" version="1.0.13"/>
     <import addon="script.module.pil" version="1.1.7" />
     <import addon="script.module.six" version="1.11.0" />
   </requires>
@@ -10,10 +10,10 @@
   <extension point="xbmc.python.script" library="default.py" />
   <extension point="xbmc.addon.metadata">
     <platform>all</platform>
-    <summary lang="en_GB">Control your Ambilight within Kodi</summary>
-    <summary lang="de_DE">Steuere Dein Ambilight von Kodi aus</summary>
-    <description lang="en_GB">Define various Ambilight and Moodlight Effects while playing different Media Types in Kodi. Switch Your Hyperion On or Off when Kodi is started or stopped.</description>
-    <description lang="de_DE"></description>
+    <summary lang="en_GB">Control your Ambilight with different effects via the Hyperion Controller Service</summary>
+    <summary lang="de_DE">Steuere Dein Ambilight mit unterschiedlichen Effekten über den Hyperion Controller Service</summary>
+    <description lang="en_GB">Define various Ambilight and Moodlight Effects while playing different Media Types in Kodi. Switch Your Ambilight On or Off when Kodi is started or stopped.</description>
+    <description lang="de_DE">Definieren Sie verschiedene Ambilight- und Moodlight-Effekte für Ihre verschiedenen Medien wie Videos, Musik oder Bilder, die in Kodi abgespielt werden. Schalten Sie Ihr Ambilight ein oder aus, wenn Kodi gestartet oder gestoppt wird.</description>
     <disclaimer lang="en_GB"></disclaimer>
     <disclaimer lang="de_DE"></disclaimer>
     <license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>

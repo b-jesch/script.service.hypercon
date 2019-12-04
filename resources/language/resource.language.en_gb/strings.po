@@ -1,5 +1,5 @@
 # XBMC Media Center language file
-# Addon Name: resource.language.de_de Hyperion Service
+# Addon Name: resource.language.de_de Hyperion Controller Service
 # Addon id: script.service.hyperion
 # Addon version: 0.0.1
 # Addon Provider: Birger Jesch
@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 
 msgctxt "#32000"
-msgid "Hypercon Controller"
+msgid "Hyperion Controller Service"
 msgstr ""
 
 msgctxt "#32010"
@@ -38,11 +38,19 @@ msgid "Hyperion"
 msgstr ""
 
 msgctxt "#32012"
-msgid "Perform Actions when:"
+msgid "Choose Action on:"
 msgstr ""
 
 msgctxt "#32013"
-msgid "Mood Color Settings"
+msgid "Mood Colors & Effects"
+msgstr ""
+
+msgctxt "#32014"
+msgid "Mood Colors"
+msgstr ""
+
+msgctxt "#32015"
+msgid "Builtin Effects"
 msgstr ""
 
 msgctxt "#32020"
@@ -54,31 +62,31 @@ msgid "JSON Server Port"
 msgstr ""
 
 msgctxt "#32025"
-msgid "Enable Hyperion on Startup"
+msgid "Enable Ambilight on Startup"
 msgstr ""
 
 msgctxt "#32026"
-msgid "Disable Hyperion on Shutdown"
+msgid "Disable Ambilight on Shutdown"
 msgstr ""
 
 msgctxt "#32030"
-msgid "Video is playing"
+msgid "Video Playback"
 msgstr ""
 
 msgctxt "#32032"
-msgid "Audio is playing"
+msgid "Audio Playback"
 msgstr ""
 
 msgctxt "#32033"
-msgid "Media is pausing"
+msgid "Media Playback paused"
 msgstr ""
 
 msgctxt "#32034"
-msgid "Menues are showing"
+msgid "Display Menues"
 msgstr ""
 
 msgctxt "#32035"
-msgid "Screensaver is running"
+msgid "activated Screensaver"
 msgstr ""
 
 msgctxt "#32040"
@@ -94,11 +102,43 @@ msgid "Moodlight Color 3"
 msgstr ""
 
 msgctxt "#32043"
-msgid "Check Moodlight Colors"
+msgid "(Re)start Ambilight"
+msgstr ""
+
+msgctxt "#32044"
+msgid "Reset all Colors and Effects"
+msgstr ""
+
+msgctxt "#32045"
+msgid "Hyperion Effect 1"
+msgstr ""
+
+msgctxt "#32046"
+msgid "Hyperion Effect 2"
+msgstr ""
+
+msgctxt "#32047"
+msgid "Hyperion Effect 3"
+msgstr ""
+
+msgctxt "#32049"
+msgid "Check Mood Colors & Builtin Effects"
 msgstr ""
 
 msgctxt "#32050"
-msgid "Hyperion"
+msgid "Ambilight"
+msgstr ""
+
+msgctxt "#32051"
+msgid "Moodlight 1"
+msgstr ""
+
+msgctxt "#32052"
+msgid "Moodlight 2"
+msgstr ""
+
+msgctxt "#32053"
+msgid "Moodlight 3"
 msgstr ""
 
 msgctxt "#32051"
@@ -114,6 +154,18 @@ msgid "Moodlight 3"
 msgstr ""
 
 msgctxt "#32054"
+msgid "Effect 1"
+msgstr ""
+
+msgctxt "#32055"
+msgid "Effect 2"
+msgstr ""
+
+msgctxt "#32056"
+msgid "Effect 3"
+msgstr ""msgctxt "#32051"
+
+msgctxt "#32057"
 msgid "off"
 msgstr ""
 
