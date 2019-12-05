@@ -53,7 +53,7 @@ if __name__ == '__main__':
                 if _idx > -1:
                     ADDON.setSetting(c_args['item'], items[_idx].getProperty('effect'))
             else:
-                kl.notifyOSD(LS(32000), LS(32061), icon=xbmcgui.NOTIFICATION_WARNING)
+                kl.notifyOSD(32000, 32061, icon=xbmcgui.NOTIFICATION_WARNING)
 
         elif c_args['action'] == 'toggle': toogle()
         elif c_args['action'] == 'check':

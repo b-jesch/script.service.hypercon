@@ -15,18 +15,18 @@
 	</category>
     <category label="32013">
 		<setting type="lsep" label="32014" />
-        <setting id="moodcolor_1" type="action" label="32040" default="FF808000" option="close"
+        <setting id="moodcolor_1" type="action" label="32040" default="FF808000"
                  action="RunScript(script.skin.helper.colorpicker,winproperty=moodcolor_1)" />
-        <setting id="moodcolor_2" type="action" label="32041" default="FF800080" option="close"
+        <setting id="moodcolor_2" type="action" label="32041" default="FF800080"
                  action="RunScript(script.skin.helper.colorpicker,winproperty=moodcolor_2)" />
-        <setting id="moodcolor_3" type="action" label="32042" default="FF008080" option="close"
+        <setting id="moodcolor_3" type="action" label="32042" default="FF008080"
                  action="RunScript(script.skin.helper.colorpicker,winproperty=moodcolor_3)" />
 		<setting type="lsep" label="32015" />
-		<setting id="effect_1" type="action" label="32045" default="None" option="close"
+		<setting id="effect_1" type="action" label="32045" default="None"
 				 action="RunScript(script.service.hypercon,action=fetch_effects&amp;item=effect_1)" />
-		<setting id="effect_2" type="action" label="32046" default="None" option="close"
+		<setting id="effect_2" type="action" label="32046" default="None"
 				 action="RunScript(script.service.hypercon,action=fetch_effects&amp;item=effect_2)" />
-		<setting id="effect_3" type="action" label="32047" default="None" option="close"
+		<setting id="effect_3" type="action" label="32047" default="None"
 				 action="RunScript(script.service.hypercon,action=fetch_effects&amp;item=effect_3)" />
 		<setting type="sep" />
 		<setting type="action" label="32049" option="close"
