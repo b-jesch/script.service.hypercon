@@ -23,11 +23,11 @@
                  action="RunScript(script.skin.helper.colorpicker,winproperty=moodcolor_3)" />
 		<setting type="lsep" label="32015" />
 		<setting id="effect_1" type="action" label="32045" default="None" option="close"
-				 action="RunScript(script.service.hypercon,action=get_effects)" />
+				 action="RunScript(script.service.hypercon,action=fetch_effects&amp;item=effect_1)" />
 		<setting id="effect_2" type="action" label="32046" default="None" option="close"
-				 action="RunScript(script.service.hypercon,action=get_effects)" />
+				 action="RunScript(script.service.hypercon,action=fetch_effects&amp;item=effect_2)" />
 		<setting id="effect_3" type="action" label="32047" default="None" option="close"
-				 action="RunScript(script.service.hypercon,action=get_effects)" />
+				 action="RunScript(script.service.hypercon,action=fetch_effects&amp;item=effect_3)" />
 		<setting type="sep" />
 		<setting type="action" label="32049" option="close"
 				 action="RunScript(script.service.hypercon,action=check)" />

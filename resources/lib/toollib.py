@@ -131,6 +131,22 @@ class KodiLib(object):
     def notifyOSD(self, header, message, time=5000, icon=xbmcgui.NOTIFICATION_INFO):
         self.OSD.notification(LS(header).encode('utf-8'), LS(message).encode('utf-8'), icon, time)
 
+    def ParamsToDict(self, parameters):
+        params = dict()
+        if parameters:
+            pairs = parameters.split("&")
+            for pair in pairs:
+                key_value = pair.split('=')
+                if (len(key_value)) == 2:
+                    params.update({key_value[0]: key_value[1]})
+        return params
+
+
+    def setProperty(self, property, value):
+        xbmcgui.Window(10000).setProperty(str(property), str(value))
+
+    def getProperty(self, property):
+        return xbmcgui.Window(10000).getProperty(str(property))
 
     '''
     creates a replacement for busy dialog in Kodi V.18 (Leia) build a wrapper function for this. The wrapper

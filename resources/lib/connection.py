@@ -18,33 +18,48 @@ class Connection(object):
             self.__ws.send(payload)
             response = json.loads(self.__ws.recv(), encoding='utf-8')
             self.__ws.close()
-            return (bool(response.get('success', False)), response.get('info', response.get('error', None)))
+            return (bool(response.get('success', False)), response.get('info', response.get('error', '')))
 
         except (websocket.error, socket.timeout):
             self.__kl.notifyOSD(32000, 32060)
 
-        return (False, None)
+        return (False, '')
 
     def getActiveEffects(self):
         success, response = self.send('{"command": "serverinfo"}')
         if success:
-            _ae = False
             for effect in response['activeEffects']:
                 self.__kl.writeLog('active effect: %s' % effect.get('name', None))
-                _ae = True
-            if not _ae: self.__kl.writeLog('no active Effects')
+            return response['activeEffects']
+        return False
 
-            _al = False
+    def getActiveLedColors(self):
+        success, response = self.send('{"command": "serverinfo"}')
+        if success:
             for led in response['activeLedColor']:
-                self.__kl.writeLog('active LED color: %s' % led.get('HEX Value', None))
-                _al = True
-            if not _al: self.__kl.writeLog('no active LEDs')
+                    self.__kl.writeLog('active LED color: %s' % led.get('HEX Value', None))
+            return response['activeLedColor']
+        return False
+
+    def fetchEffectList(self):
+        success, response = self.send('{"command": "serverinfo"}')
+        if success:
+            effect_names = []
+            for effect in response['effects']: effect_names.append(effect.get('name', ''))
+            self.__kl.writeLog('Builtin effects: %s' % effect_names)
+            return effect_names
+        return False
 
     def Clear(self, priority=100):
-        self.__kl.writeLog('success: %s %s' % self.send('{"command": "effect", "effect": {"name": "clear"}, "priority": %s}' % priority))
+        self.__kl.writeLog('success: %s %s' %
+                           self.send('{"command": "effect", "effect": {"name": "clear"}, "priority": %s}' % priority))
 
     def clearAll(self):
         self.__kl.writeLog('success: %s %s' % self.send('{"command": "clearall"}'))
+
+    def setEffect(self, effect, priority=100):
+        self.__kl.writeLog('success: %s %s' %
+                           self.send('{"command": "effect", "effect": {"name": "%s"}, "priority": %s}' % (effect, priority)))
 
     def setColor(self, rgbcolor, priority=100):
 

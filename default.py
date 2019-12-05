@@ -1,7 +1,9 @@
 from resources.lib.toollib import *
 from resources.lib.connection import Connection
+import sys
 
 kl = KodiLib()
+dialog = xbmcgui.Dialog()
 
 ip = kl.getAddonSetting('ip')
 port = kl.getAddonSetting('port')
@@ -12,39 +14,108 @@ moodcolor_1 = kl.getAddonSetting('moodcolor_1')
 moodcolor_2 = kl.getAddonSetting('moodcolor_2')
 moodcolor_3 = kl.getAddonSetting('moodcolor_3')
 
+effect_1 = kl.getAddonSetting('effect_1')
+effect_2 = kl.getAddonSetting('effect_2')
+effect_3 = kl.getAddonSetting('effect_3')
+
 icon_1 = os.path.join(ADDON_PATH, 'resources', 'media', moodcolor_1)
 icon_2 = os.path.join(ADDON_PATH, 'resources', 'media', moodcolor_2)
 icon_3 = os.path.join(ADDON_PATH, 'resources', 'media', moodcolor_3)
 
+defaultIcon = os.path.join(ADDON_PATH, 'icon.png')
+
+def toogle():
+    if kl.getProperty('hyperion.status') == 'on':
+        connection.setColor('#000000')
+        kl.setProperty('hyperion.status', 'off')
+        kl.writeLog('Hyperion service status toggle to off', xbmc.LOGNOTICE)
+    else:
+        connection.clearAll()
+        kl.setProperty('hyperion.status', 'on')
+        kl.writeLog('Hyperion service status toggle to on', xbmc.LOGNOTICE)
+
 if __name__ == '__main__':
 
-    actions = []
+    items = []
+    arguments = sys.argv
+    if len(arguments) > 1:
+        c_args = kl.ParamsToDict(arguments[1])
+        kl.writeLog('getting controller parameters: %s' % c_args)
 
-    li = xbmcgui.ListItem(label=LS(32043), label2=LS(32044), iconImage=os.path.join(ADDON_PATH, 'icon.png'))
-    li.setProperty('action', 'clearall')
-    li.setProperty('param', '100')
-    actions.append(li)
-    li = xbmcgui.ListItem(label=LS(32040), label2=moodcolor_1, iconImage=icon_1)
-    li.setProperty('action', 'setcolor')
-    li.setProperty('param', moodcolor_1)
-    actions.append(li)
-    li = xbmcgui.ListItem(label=LS(32041), label2=moodcolor_2, iconImage=icon_2)
-    li.setProperty('action', 'setcolor')
-    li.setProperty('param', moodcolor_2)
-    actions.append(li)
-    li = xbmcgui.ListItem(label=LS(32042), label2=moodcolor_3, iconImage=icon_3)
-    li.setProperty('action', 'setcolor')
-    li.setProperty('param', moodcolor_3)
-    actions.append(li)
+        if c_args['action'] == 'fetch_effects':
+            effects = connection.fetchEffectList()
+            if effects:
+                for names in effects:
+                    li = xbmcgui.ListItem(label=names, iconImage=defaultIcon)
+                    li.setProperty('effect', names)
+                    items.append(li)
+                _idx = dialog.select(LS(32015), items)
+                if _idx > -1:
+                    ADDON.setSetting(c_args['item'], items[_idx].getProperty('effect'))
+            else:
+                kl.notifyOSD(LS(32000), LS(32061), icon=xbmcgui.NOTIFICATION_WARNING)
 
-    dialog = xbmcgui.Dialog()
-    _idx = dialog.select(LS(32000), actions, useDetails=True)
-    if _idx > -1:
-        action = actions[_idx].getProperty('action')
-        param = actions[_idx].getProperty('param')
-        print action, param
+        elif c_args['action'] == 'toggle': toogle()
+        elif c_args['action'] == 'check':
 
-        if action == 'setcolor': connection.setColor(param)
-        elif action == 'clearall': connection.clearAll()
-        else:
-            kl.writeLog('unknown parameter', xbmc.LOGERROR)
+            li = xbmcgui.ListItem(label=LS(32040), label2=moodcolor_1, iconImage=icon_1)
+            li.setProperty('action', 'setcolor')
+            li.setProperty('param', moodcolor_1)
+            items.append(li)
+            li = xbmcgui.ListItem(label=LS(32041), label2=moodcolor_2, iconImage=icon_2)
+            li.setProperty('action', 'setcolor')
+            li.setProperty('param', moodcolor_2)
+            items.append(li)
+            li = xbmcgui.ListItem(label=LS(32042), label2=moodcolor_3, iconImage=icon_3)
+            li.setProperty('action', 'setcolor')
+            li.setProperty('param', moodcolor_3)
+            items.append(li)
+            li = xbmcgui.ListItem(label=LS(32045), label2=effect_1, iconImage=defaultIcon)
+            li.setProperty('action', 'effect')
+            li.setProperty('param', effect_1)
+            items.append(li)
+            li = xbmcgui.ListItem(label=LS(32046), label2=effect_2, iconImage=defaultIcon)
+            li.setProperty('action', 'effect')
+            li.setProperty('param', effect_2)
+            items.append(li)
+            li = xbmcgui.ListItem(label=LS(32047), label2=effect_3, iconImage=defaultIcon)
+            li.setProperty('action', 'effect')
+            li.setProperty('param', effect_3)
+            items.append(li)
+
+            _idx = dialog.select(LS(32000), items, useDetails=True)
+            if _idx > -1:
+                action = items[_idx].getProperty('action')
+                param = items[_idx].getProperty('param')
+
+                if action == 'setcolor':
+                    if kl.getProperty('hyperion.status') == 'off': toogle()
+                    connection.setColor(param)
+                elif action == 'effect':
+                    if kl.getProperty('hyperion.status') == 'off': toogle()
+                    connection.setEffect(param)
+                else:
+                    kl.writeLog('unknown parameter', xbmc.LOGERROR)
+
+    else:
+        li = xbmcgui.ListItem(label=LS(32058), label2=LS(32059) % kl.getProperty('hyperion.status'),
+                              iconImage=defaultIcon)
+        li.setProperty('action', 'toggle')
+        li.setProperty('param', '')
+        items.append(li)
+        li = xbmcgui.ListItem(label=LS(32043), label2=LS(32044), iconImage=defaultIcon)
+        li.setProperty('action', 'clearall')
+        li.setProperty('param', '100')
+        items.append(li)
+
+        _idx = dialog.select(LS(32000), items, useDetails=True)
+        if _idx > -1:
+            action = items[_idx].getProperty('action')
+            param = items[_idx].getProperty('param')
+
+            if action == 'toggle': toogle()
+            elif action == 'clearall':
+                if kl.getProperty('hyperion.status') == 'off': toogle()
+                connection.clearAll()
+            else:
+                kl.writeLog('unknown parameter', xbmc.LOGERROR)

@@ -50,7 +50,7 @@ msgid "Mood Colors"
 msgstr ""
 
 msgctxt "#32015"
-msgid "Builtin Effects"
+msgid "Choose Builtin Effect"
 msgstr ""
 
 msgctxt "#32020"
@@ -102,7 +102,7 @@ msgid "Moodlight Color 3"
 msgstr ""
 
 msgctxt "#32043"
-msgid "Return to Ambilight"
+msgid "Ambilight"
 msgstr ""
 
 msgctxt "#32044"
@@ -163,14 +163,26 @@ msgstr ""
 
 msgctxt "#32056"
 msgid "Effect 3"
-msgstr ""msgctxt "#32051"
+msgstr ""
 
 msgctxt "#32057"
 msgid "off"
+msgstr ""
+
+msgctxt "#32058"
+msgid "Toggle Hyperion on/off"
+msgstr ""
+
+msgctxt "#32059"
+msgid "current Status: %s"
 msgstr ""
 
 # Error Messages
 
 msgctxt "#32060"
 msgid "No Connection to Hyperion Server"
+msgstr ""
+
+msgctxt "#32061"
+msgid "No Builtin Effects found"
 msgstr ""
