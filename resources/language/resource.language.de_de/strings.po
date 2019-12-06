@@ -102,8 +102,8 @@ msgid "Moodlight Color 3"
 msgstr "Umgebungslicht Farbe 3"
 
 msgctxt "#32043"
-msgid "Ambilight"
-msgstr "Ambilight"
+msgid "on"
+msgstr "an"
 
 msgctxt "#32044"
 msgid "Clear all Colors and Effects"

@@ -98,12 +98,13 @@ if __name__ == '__main__':
                     kl.writeLog('unknown parameter', xbmc.LOGERROR)
 
     else:
-        li = xbmcgui.ListItem(label=LS(32058), label2=LS(32059) % kl.getProperty('hyperion.status'),
+        li = xbmcgui.ListItem(label=LS(32058),
+                              label2=LS(32059) % {'on': LS(32043), 'off': LS(32057)}.get(kl.getProperty('hyperion.status')),
                               iconImage=defaultIcon)
         li.setProperty('action', 'toggle')
         li.setProperty('param', '')
         items.append(li)
-        li = xbmcgui.ListItem(label=LS(32043), label2=LS(32044), iconImage=defaultIcon)
+        li = xbmcgui.ListItem(label=LS(32050), label2=LS(32044), iconImage=defaultIcon)
         li.setProperty('action', 'clearall')
         li.setProperty('param', '100')
         items.append(li)

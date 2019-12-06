@@ -102,7 +102,7 @@ msgid "Moodlight Color 3"
 msgstr ""
 
 msgctxt "#32043"
-msgid "Ambilight"
+msgid "on"
 msgstr ""
 
 msgctxt "#32044"
