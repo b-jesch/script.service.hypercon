@@ -50,7 +50,7 @@ msgid "Mood Colors"
 msgstr ""
 
 msgctxt "#32015"
-msgid "Choose Builtin Effect"
+msgid "Builtin Effects"
 msgstr ""
 
 msgctxt "#32020"

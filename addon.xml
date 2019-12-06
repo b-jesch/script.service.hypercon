@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.service.hypercon" name="Hyperion Controller Service" version="0.0.1" provider-name="Birger Jesch">
+<addon id="script.service.hypercon" name="Hyperion Controller Service" version="0.0.2" provider-name="Birger Jesch">
   <requires>
     <import addon="xbmc.python" version="2.25.0"/>
     <import addon="script.skin.helper.colorpicker" version="1.0.13"/>
     <import addon="script.module.pil" version="1.1.7" />
     <import addon="script.module.six" version="1.11.0" />
   </requires>
+  <extension point="xbmc.python.script" library="default.py">
+    <provides>executable</provides>
+  </extension>
   <extension point="xbmc.service" library="service.py" start="startup|login" />
-  <extension point="xbmc.python.script" library="default.py" />
+
   <extension point="xbmc.addon.metadata">
     <platform>all</platform>
     <summary lang="en_GB">Control your Ambilight with different effects via the Hyperion Controller Service</summary>
@@ -17,8 +20,8 @@
     <disclaimer lang="en_GB">Use at your own Risk</disclaimer>
     <disclaimer lang="de_DE">Benutzung auf eigene Gefahr</disclaimer>
     <license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>
-    <forum></forum>
-    <website></website>
+    <forum />
+    <website />
     <email>birger.jesch@gmail.com</email>
     <source>https://github.com/b-jesch/script.service.hypercon</source>
     <news>
@@ -27,8 +30,8 @@
     <assets>
         <icon>icon.png</icon>
         <fanart>fanart.jpg</fanart>
-        <screenshot></screenshot>
-        <screenshot></screenshot>
+        <screenshot />
+        <screenshot />
     </assets>
   </extension>
 </addon>

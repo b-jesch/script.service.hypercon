@@ -31,7 +31,7 @@ msgstr "Hyperion Controller Service"
 
 msgctxt "#32010"
 msgid "General Settings"
-msgstr "Einstelllungen"
+msgstr "Einstellungen"
 
 msgctxt "#32011"
 msgid "Hyperion"
@@ -50,8 +50,8 @@ msgid "Mood Colors"
 msgstr "Hintergrundfarben"
 
 msgctxt "#32015"
-msgid "Choose Builtin Effect"
-msgstr "Effekt auswählen"
+msgid "Builtin Effects"
+msgstr "Effekte"
 
 msgctxt "#32020"
 msgid "IP Address"
