@@ -27,150 +27,150 @@ msgstr ""
 
 msgctxt "#32000"
 msgid "Hyperion Controller Service"
-msgstr ""
+msgstr "Hyperion Controller Service"
 
 msgctxt "#32010"
 msgid "General Settings"
-msgstr ""
+msgstr "Einstelllungen"
 
 msgctxt "#32011"
 msgid "Hyperion"
-msgstr ""
+msgstr "Hyperion"
 
 msgctxt "#32012"
 msgid "Choose Action on:"
-msgstr ""
+msgstr "Wähle eine Aktion aus, wenn:"
 
 msgctxt "#32013"
 msgid "Mood Colors & Effects"
-msgstr ""
+msgstr "Farben & Effekte"
 
 msgctxt "#32014"
 msgid "Mood Colors"
-msgstr ""
+msgstr "Hintergrundfarben"
 
 msgctxt "#32015"
 msgid "Choose Builtin Effect"
-msgstr ""
+msgstr "Effekt auswählen"
 
 msgctxt "#32020"
 msgid "IP Address"
-msgstr ""
+msgstr "IP-Adresse"
 
 msgctxt "#32021"
 msgid "JSON Server Port"
-msgstr ""
+msgstr "JSON Server Port"
 
 msgctxt "#32025"
 msgid "Enable Ambilight on Startup"
-msgstr ""
+msgstr "Bei Systemstart Ambilight starten"
 
 msgctxt "#32026"
 msgid "Disable Ambilight on Shutdown"
-msgstr ""
+msgstr "Bei Systemstop Ambilight stoppen"
 
 msgctxt "#32030"
 msgid "Video Playback"
-msgstr ""
+msgstr "Video abgespielt wird"
 
 msgctxt "#32032"
 msgid "Audio Playback"
-msgstr ""
+msgstr "Audio abgespielt wird"
 
 msgctxt "#32033"
 msgid "Media Playback paused"
-msgstr ""
+msgstr "Medien pausieren"
 
 msgctxt "#32034"
 msgid "Display Menues"
-msgstr ""
+msgstr "Menüs angezeigt werden"
 
 msgctxt "#32035"
 msgid "activated Screensaver"
-msgstr ""
+msgstr "Screensaver aktiv ist"
 
 msgctxt "#32040"
 msgid "Moodlight Color 1"
-msgstr ""
+msgstr "Umgebungslicht Farbe 1"
 
 msgctxt "#32041"
 msgid "Moodlight Color 2"
-msgstr ""
+msgstr "Umgebungslicht Farbe 2"
 
 msgctxt "#32042"
 msgid "Moodlight Color 3"
-msgstr ""
+msgstr "Umgebungslicht Farbe 3"
 
 msgctxt "#32043"
 msgid "Ambilight"
-msgstr ""
+msgstr "Ambilight"
 
 msgctxt "#32044"
 msgid "Clear all Colors and Effects"
-msgstr ""
+msgstr "Alle Farben und Effekte zurücksetzen"
 
 msgctxt "#32045"
 msgid "Hyperion Effect 1"
-msgstr ""
+msgstr "Hyperion Effekt 1"
 
 msgctxt "#32046"
 msgid "Hyperion Effect 2"
-msgstr ""
+msgstr "Hyperion Effekt 2"
 
 msgctxt "#32047"
 msgid "Hyperion Effect 3"
-msgstr ""
+msgstr "Hyperion Effekt 3"
 
 msgctxt "#32049"
 msgid "Check Mood Colors & Builtin Effects"
-msgstr ""
+msgstr "Umgebungsfarben und Effekte testen"
 
 msgctxt "#32050"
 msgid "Ambilight"
-msgstr ""
+msgstr "Ambilight"
 
 msgctxt "#32051"
 msgid "Moodlight 1"
-msgstr ""
+msgstr "Umgebungslicht 1"
 
 msgctxt "#32052"
 msgid "Moodlight 2"
-msgstr ""
+msgstr "Umgebungslicht 2"
 
 msgctxt "#32053"
 msgid "Moodlight 3"
-msgstr ""
+msgstr "Umgebungslicht 3"
 
 msgctxt "#32054"
 msgid "Effect 1"
-msgstr ""
+msgstr "Effekt 1"
 
 msgctxt "#32055"
 msgid "Effect 2"
-msgstr ""
+msgstr "Effekt 2"
 
 msgctxt "#32056"
 msgid "Effect 3"
-msgstr ""
+msgstr "Effekt 3"
 
 msgctxt "#32057"
 msgid "off"
-msgstr ""
+msgstr "aus"
 
 msgctxt "#32058"
 msgid "Toggle Hyperion on/off"
-msgstr ""
+msgstr "Schalte Hyperion ein/aus"
 
 msgctxt "#32059"
 msgid "current Status: %s"
-msgstr ""
+msgstr "aktueller Status: %s"
 
 # Error Messages
 
 msgctxt "#32060"
 msgid "No Connection to Hyperion Server"
-msgstr ""
+msgstr "Keine Verbindung zum Hyperion Server"
 
 msgctxt "#32061"
 msgid "No Builtin Effects found"
-msgstr ""
+msgstr "Keine Effekte gefunden"
