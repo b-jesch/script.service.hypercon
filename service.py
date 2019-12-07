@@ -60,6 +60,7 @@ class Hyperion(object):
     def __init__(self):
         self.player = Player()
         self.monitor = Monitor()
+        kl.setProperty('hyperion.check', '-1')
 
         if not os.path.exists(os.path.join(ADDON_PATH, 'resources', 'media')):
             os.mkdir(os.path.join(ADDON_PATH, 'resources', 'media'))
@@ -142,9 +143,9 @@ class Hyperion(object):
         else:
             pass
 
-    def eventHandler(self):
+    def eventHandler(self, force=False):
         if kl.getProperty('hyperion.status') == 'on':
-            if self.monitor.eventChanged or self.player.eventChanged:
+            if self.monitor.eventChanged or self.player.eventChanged or force:
                 if self.player.isPlaying:
                     if self.player.isPausing:
                         # state paused
@@ -194,6 +195,18 @@ class Hyperion(object):
 
             if self.monitor.settingsChanged: self.getSettings()
             self.checkColors()
+            _checkcounter = int(kl.getProperty('hyperion.check'))
+            if _checkcounter > 0:
+                _checkcounter -= 1
+                kl.setProperty('hyperion.check', str(_checkcounter))
+            elif _checkcounter == 0:
+                _checkcounter -= 1
+                kl.setProperty('hyperion.check', str(_checkcounter))
+                kl.writeLog('Return to normal behaviour')
+                kl.notifyOSD(32000, 32039)
+                self.eventHandler(force=True)
+            else:
+                pass
             self.eventHandler()
 
 

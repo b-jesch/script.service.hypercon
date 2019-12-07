@@ -89,6 +89,10 @@ msgctxt "#32035"
 msgid "activated Screensaver"
 msgstr ""
 
+msgctxt "#32039"
+msgid "Return to normal Behaviour"
+msgstr ""
+
 msgctxt "#32040"
 msgid "Moodlight Color 1"
 msgstr ""

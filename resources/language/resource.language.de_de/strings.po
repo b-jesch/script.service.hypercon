@@ -89,6 +89,10 @@ msgctxt "#32035"
 msgid "activated Screensaver"
 msgstr "Screensaver aktiv ist"
 
+msgctxt "#32039"
+msgid "Return to normal Behaviour"
+msgstr "Schalte um in normalen Betriebsmodus"
+
 msgctxt "#32040"
 msgid "Moodlight Color 1"
 msgstr "Umgebungslicht Farbe 1"

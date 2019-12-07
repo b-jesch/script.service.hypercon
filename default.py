@@ -87,6 +87,7 @@ if __name__ == '__main__':
             if _idx > -1:
                 action = items[_idx].getProperty('action')
                 param = items[_idx].getProperty('param')
+                kl.setProperty('hyperion.check', '5')
 
                 if action == 'setcolor':
                     if kl.getProperty('hyperion.status') == 'off': toogle()
@@ -117,6 +118,7 @@ if __name__ == '__main__':
             if action == 'toggle': toogle()
             elif action == 'clearall':
                 if kl.getProperty('hyperion.status') == 'off': toogle()
+                kl.setProperty('hyperion.check', '0')
                 connection.clearAll()
             else:
                 kl.writeLog('unknown parameter', xbmc.LOGERROR)
