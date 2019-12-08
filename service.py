@@ -183,8 +183,8 @@ class Hyperion(object):
         self.connection.getActiveLedColors()
 
         if self.enableHyperion:
-            self.eventHandler(force=True)
             kl.setProperty('hyperion.status', 'on')
+            self.eventHandler(force=True)
 
         while not self.monitor.abortRequested():
             if self.monitor.waitForAbort(2):
