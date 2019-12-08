@@ -129,7 +129,11 @@ class Hyperion(object):
                 "method": "Player.GetActivePlayers",
                 }
         res = kl.jsonrpc(query)
-        return res[0].get('type', None)
+        try:
+            return res[0].get('type', None)
+        except IndexError:
+            kl.writeLog(res, level=xbmc.LOGERROR)
+            return False
 
     def effectHandler(self, nr=0):
         if nr == 0: self.connection.clearAll()
