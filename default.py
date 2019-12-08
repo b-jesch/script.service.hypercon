@@ -30,8 +30,8 @@ def toogle():
         kl.setProperty('hyperion.status', 'off')
         kl.writeLog('Hyperion service status toggle to off', xbmc.LOGNOTICE)
     else:
-        connection.clearAll()
         kl.setProperty('hyperion.status', 'on')
+        kl.setProperty('hyperion.check', '0')
         kl.writeLog('Hyperion service status toggle to on', xbmc.LOGNOTICE)
 
 if __name__ == '__main__':
