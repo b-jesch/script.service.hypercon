@@ -1,3 +1,5 @@
+#! /bin/python
+
 from resources.lib.toollib import *
 from resources.lib.connection import Connection
 import sys

@@ -193,6 +193,7 @@ class Hyperion(object):
         while not self.monitor.abortRequested():
             if self.monitor.waitForAbort(2):
                 if self.disableHyperion:
+                    self.connection.clearAll()
                     self.connection.setColor('#000000')
                     kl.setProperty('hyperion.status', 'off')
                 break
