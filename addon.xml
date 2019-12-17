@@ -24,9 +24,10 @@
     <email>birger.jesch@gmail.com</email>
     <source>https://github.com/b-jesch/script.service.hypercon</source>
     <news>
-0.0.3: Improved Shutdown
-0.0.2: Some Enhancements
-0.0.1: Initial Commit
+0.0.4: Introducing stereoscopic detection
+0.0.3: Improved shutdown
+0.0.2: Some enhancements
+0.0.1: Initial commit
     </news>
     <assets>
         <icon>icon.png</icon>

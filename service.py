@@ -135,6 +135,17 @@ class Hyperion(object):
             kl.writeLog(res, level=xbmc.LOGERROR)
             return False
 
+    def getStereoscopeMode(self):
+        query = {
+                "method": "GUI.GetProperties",
+                "params": {"properties": ["stereoscopicmode"]}
+                }
+        res = kl.jsonrpc(query)
+        if res: return {'split_vertical': '3DSBS',
+                        'split_horizontal': '3DTAB',
+                        'off': '2D'}.get(res['stereoscopicmode']['mode'], '2D')
+        return False
+
     def effectHandler(self, nr=0):
         if nr == 0: self.connection.clearAll()
         elif nr == 1: self.connection.setColor(self.moodcolor_1),
@@ -159,7 +170,8 @@ class Hyperion(object):
                         # state playing video or audio
                         media = self.getPlayerProperties()
                         if media == 'video':
-                            kl.writeLog('player.isplaying %s => %s' % (media, self.opt_videoMode))
+                            s_mode = self.getStereoscopeMode()
+                            kl.writeLog('player.isplaying %s in %s => %s' % (media, s_mode, self.opt_videoMode))
                             self.effectHandler(self.opt_videoMode)
                         elif media == 'audio':
                             kl.writeLog('player.isplaying %s => %s' % (media, self.opt_audioMode))

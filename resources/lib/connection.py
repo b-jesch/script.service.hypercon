@@ -44,7 +44,7 @@ class Connection(object):
     def fetchEffectList(self):
         success, response = self.send('{"command": "serverinfo"}')
         if success:
-            effect_names = []
+            effect_names = list()
             for effect in response['effects']: effect_names.append(effect.get('name', ''))
             kl.writeLog('Builtin effects: %s' % effect_names)
             return effect_names
