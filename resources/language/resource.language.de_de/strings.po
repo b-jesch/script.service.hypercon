@@ -89,6 +89,14 @@ msgctxt "#32035"
 msgid "activated Screensaver"
 msgstr "Screensaver aktiv ist"
 
+msgctxt "#32036"
+msgid "Behaviour on Program Call"
+msgstr "Verhalten bei Prgrammaufruf"
+
+msgctxt "#32037"
+msgid "Toggle Ambilight only instead of showing Menu"
+msgstr "Anstelle des Menüaufrufs Ambilight direkt umschalten"
+
 msgctxt "#32039"
 msgid "Return to normal Behaviour"
 msgstr "Schalte um in normalen Betriebsmodus"

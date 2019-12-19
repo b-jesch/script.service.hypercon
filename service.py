@@ -86,6 +86,7 @@ class Hyperion(object):
         self.port = kl.getAddonSetting('port')
         self.enableHyperion = kl.getAddonSetting('enableHyperion', sType=BOOL)
         self.disableHyperion = kl.getAddonSetting('disableHyperion', sType=BOOL)
+        self.switchDirectly = kl.getAddonSetting('switchDirectly', sType=BOOL)
 
         self.connection = Connection(self.ip, self.port)
 

@@ -6,6 +6,8 @@
         <setting type="lsep" label="32011" />
 		<setting id="enableHyperion" type="bool" label="32025" default="true" />
 		<setting id="disableHyperion" type="bool" label="32026" default="true" />
+		<setting type="lsep" label="32036" />
+		<setting id="switchDirectly" type="bool" label="32037" default="false" />
         <setting type="lsep" label="32012" />
 		<setting id="videoMode" type="enum" label="32030" default="0" lvalues="32050|32051|32052|32053|32054|32055|32056|32057" />
 		<setting id="audioMode" type="enum" label="32032" default="0" lvalues="32050|32051|32052|32053|32054|32055|32056|32057" />

@@ -12,6 +12,8 @@ port = kl.getAddonSetting('port')
 
 connection = Connection(ip, port)
 
+switchDirectly = kl.getAddonSetting('switchDirectly', sType=BOOL)
+
 moodcolor_1 = kl.getAddonSetting('moodcolor_1')
 moodcolor_2 = kl.getAddonSetting('moodcolor_2')
 moodcolor_3 = kl.getAddonSetting('moodcolor_3')
@@ -38,7 +40,7 @@ def toogle():
 
 if __name__ == '__main__':
 
-    items = []
+    items = list()
     arguments = sys.argv
     if len(arguments) > 1:
         c_args = kl.ParamsToDict(arguments[1])
@@ -100,7 +102,7 @@ if __name__ == '__main__':
                 else:
                     kl.writeLog('unknown parameter', xbmc.LOGERROR)
 
-    else:
+    if not switchDirectly:
         li = xbmcgui.ListItem(label=LS(32058),
                               label2=LS(32059) % {'on': LS(32043), 'off': LS(32057)}.get(kl.getProperty('hyperion.status')),
                               iconImage=defaultIcon)
@@ -124,3 +126,5 @@ if __name__ == '__main__':
                 connection.clearAll()
             else:
                 kl.writeLog('unknown parameter', xbmc.LOGERROR)
+    else:
+        toogle()
