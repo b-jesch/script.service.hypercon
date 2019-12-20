@@ -25,22 +25,17 @@ class Connection(object):
 
         return (False, '')
 
-    def getActiveEffects(self):
+
+    def getActiveTasks(self):
         success, response = self.send('{"command": "serverinfo"}')
         if success:
-            for effect in response['activeEffects']:
-                kl.writeLog('active effect: %s' % effect.get('name', None))
-            return response['activeEffects']
+            active_tasks = list()
+            for effect in response['activeEffects']: active_tasks.append(effect.get('name', None)[0].encode('utf-8'))
+            for led in response['activeLedColor']: active_tasks.append(led.get('HEX Value', None)[0].encode('utf-8'))
+            kl.writeLog('active Effects/Colors: %s' % str(active_tasks))
+            return active_tasks
         return False
-
-    def getActiveLedColors(self):
-        success, response = self.send('{"command": "serverinfo"}')
-        if success:
-            for led in response['activeLedColor']:
-                    kl.writeLog('active LED color: %s' % led.get('HEX Value', None))
-            return response['activeLedColor']
-        return False
-
+            
     def fetchEffectList(self):
         success, response = self.send('{"command": "serverinfo"}')
         if success:

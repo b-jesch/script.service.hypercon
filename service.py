@@ -148,8 +148,10 @@ class Hyperion(object):
         return False
 
     def effectHandler(self, nr=0):
-        if nr == 0: self.connection.clearAll()
-        elif nr == 1: self.connection.setColor(self.moodcolor_1),
+
+        self.connection.clearAll()
+
+        if nr == 1: self.connection.setColor(self.moodcolor_1),
         elif nr == 2: self.connection.setColor(self.moodcolor_2),
         elif nr == 3: self.connection.setColor(self.moodcolor_3),
         elif nr == 4: self.connection.setEffect(self.effect_1),
@@ -172,7 +174,7 @@ class Hyperion(object):
                         media = self.getPlayerProperties()
                         if media == 'video':
                             s_mode = self.getStereoscopeMode()
-                            kl.writeLog('player.isplaying %s in %s => %s' % (media, s_mode, self.opt_videoMode))
+                            kl.writeLog('player.isplaying (%s, %s) => %s' % (media, s_mode, self.opt_videoMode))
                             self.effectHandler(self.opt_videoMode)
                         elif media == 'audio':
                             kl.writeLog('player.isplaying %s => %s' % (media, self.opt_audioMode))
@@ -195,9 +197,6 @@ class Hyperion(object):
 
     def start(self):
         kl.writeLog('Starting Hyperion service script', xbmc.LOGNOTICE)
-
-        self.connection.getActiveEffects()
-        self.connection.getActiveLedColors()
 
         if self.enableHyperion:
             kl.setProperty('hyperion.status', 'on')
