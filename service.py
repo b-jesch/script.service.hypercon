@@ -130,8 +130,9 @@ class Hyperion(object):
                 "method": "Player.GetActivePlayers",
                 }
         res = kl.jsonrpc(query)
+        print(res)
         try:
-            return res[0].get('type', None)
+            return res[0].get('type', False)
         except IndexError:
             kl.writeLog(res, level=xbmc.LOGERROR)
             return False

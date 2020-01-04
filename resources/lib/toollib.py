@@ -100,7 +100,7 @@ class KodiLib(object):
 
     def writeLog(self, message, level=xbmc.LOGDEBUG):
         try:
-            xbmc.log('[%s %s]: %s' % (ADDON_ID, ADDON_VERSION, message), level)
+            xbmc.log('[%s %s]: %s' % (ADDON_ID, ADDON_VERSION, message))
         except Exception:
             xbmc.log('[%s %s]: %s' % (ADDON_ID, ADDON_VERSION, 'Fatal: Could not log message'), xbmc.LOGERROR)
 
@@ -108,10 +108,10 @@ class KodiLib(object):
         querystring = {"jsonrpc": "2.0", "id": 1}
         querystring.update(query)
         try:
-            response = json.loads(xbmc.executeJSONRPC(json.dumps(querystring, encoding='utf-8')))
+            response = json.loads(xbmc.executeJSONRPC(json.dumps(querystring)))
             if 'result' in response: return response['result']
         except TypeError as e:
-            self.writeLog('Error executing JSON RPC: %s' % (e.args), xbmc.LOGERROR)
+            self.writeLog('Error executing JSON RPC: %s' % e.args, xbmc.LOGERROR)
         return False
 
     def getAddonSetting(self, setting, sType=STRING, multiplicator=1):
@@ -121,7 +121,7 @@ class KodiLib(object):
             try:
                 return int(re.findall('([0-9]+)', ADDON.getSetting(setting))[0]) * multiplicator
             except (IndexError, TypeError, AttributeError) as e:
-                self.writeLog('Could not get setting type NUM for %s, return with 0' % (setting), xbmc.LOGERROR)
+                self.writeLog('Could not get setting type NUM for %s, return with 0' % setting, xbmc.LOGERROR)
                 self.writeLog(str(e.message))
                 return 0
         else:
@@ -143,6 +143,7 @@ class KodiLib(object):
 
     def setProperty(self, property, value):
         xbmcgui.Window(10000).setProperty(str(property), str(value))
+
 
     def getProperty(self, property):
         return xbmcgui.Window(10000).getProperty(str(property))
