@@ -228,7 +228,7 @@ def createImage(width, height, rgbColor, path):
     # skip transparency
     if len(rgb) == 8: rgb = rgb[2:8]
     lv = len(rgb)
-    color = tuple(int(rgb[i:i + lv / 3], 16) for i in range(0, lv, lv / 3))
+    color = tuple(int(rgb[i:i + int(lv / 3)], 16) for i in range(0, lv, int(lv / 3)))
     img = Image.new('RGB', (width, height), color)
     img.save(path, format='PNG')
     return path
