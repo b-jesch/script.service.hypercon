@@ -130,12 +130,11 @@ class Hyperion(object):
                 "method": "Player.GetActivePlayers",
                 }
         res = kl.jsonrpc(query)
-        print(res)
         try:
-            return res[0].get('type', False)
+            return res[0].get('type', None)
         except IndexError:
             kl.writeLog(res, level=xbmc.LOGERROR)
-            return False
+            return None
 
     def getStereoscopeMode(self):
         query = {
