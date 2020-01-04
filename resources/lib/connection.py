@@ -1,7 +1,7 @@
-import websocket
+from . import websocket
 import socket
 import json
-from toollib import KodiLib
+from . toollib import KodiLib
 
 kl = KodiLib()
 

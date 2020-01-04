@@ -56,7 +56,7 @@ class CryptDecrypt(object):
             return ''
         else:
             self.__key = ''
-            for i in range((len(self.passw) / 16) + 1):
+            for i in range((int(len(self.passw) / 16)) + 1):
                 self.__key += ('%016d' % int(random.random() * 10 ** 16))
             self.__key = self.__key[:-2] + ('%02d' % len(self.passw))
             __tpw = self.passw.ljust(len(self.__key), 'a')
@@ -79,7 +79,7 @@ class OsRelease(object):
                     for _line in _file:
                         parameter, value = _line.split('=')
                         item[parameter] = value
-            except IOError, e:
+            except IOError as e:
                 KodiLib.writeLog(e.message, xbmc.LOGERROR)
 
         self.osname = item.get('NAME', 'unknown')
@@ -110,8 +110,8 @@ class KodiLib(object):
         try:
             response = json.loads(xbmc.executeJSONRPC(json.dumps(querystring, encoding='utf-8')))
             if 'result' in response: return response['result']
-        except TypeError, e:
-            self.writeLog('Error executing JSON RPC: %s' % (e.message), xbmc.LOGERROR)
+        except TypeError as e:
+            self.writeLog('Error executing JSON RPC: %s' % (e.args), xbmc.LOGERROR)
         return False
 
     def getAddonSetting(self, setting, sType=STRING, multiplicator=1):
@@ -128,7 +128,7 @@ class KodiLib(object):
             return ADDON.getSetting(setting)
 
     def notifyOSD(self, header, message, time=5000, icon=xbmcgui.NOTIFICATION_INFO):
-        self.OSD.notification(LS(header).encode('utf-8'), LS(message).encode('utf-8'), icon, time)
+        self.OSD.notification(LS(header), LS(message), icon, time)
 
     def ParamsToDict(self, parameters):
         params = dict()
@@ -182,8 +182,8 @@ class KlProgressBar(object):
 
         self.header = header
         self.msg = msg
-        self.timeout = 1000 * duration / steps
-        self.steps = 100 / steps
+        self.timeout = int(1000 * duration / steps)
+        self.steps = int(100 / steps)
         self.reverse = reverse
         self.iscanceled = False
 

@@ -28,6 +28,7 @@ icon_3 = os.path.join(ADDON_PATH, 'resources', 'media', moodcolor_3)
 
 defaultIcon = os.path.join(ADDON_PATH, 'icon.png')
 
+
 def toogle():
     if kl.getProperty('hyperion.status') == 'on':
         connection.setColor('#000000')
@@ -37,6 +38,7 @@ def toogle():
         kl.setProperty('hyperion.status', 'on')
         kl.setProperty('hyperion.check', '0')
         kl.writeLog('Hyperion service status toggle to on', xbmc.LOGNOTICE)
+
 
 if __name__ == '__main__':
 
