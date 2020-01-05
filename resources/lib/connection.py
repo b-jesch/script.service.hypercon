@@ -20,7 +20,10 @@ class Connection(object):
             self.__ws.close()
             return (bool(response.get('success', False)), response.get('info', response.get('error', '')))
 
-        except (websocket.error, socket.timeout, socket.error):
+        except ConnectionRefusedError as e:
+            kl.writeLog(e.strerror)
+
+        except (socket.timeout, socket.herror, websocket.WebSocketException):
             kl.notifyOSD(32000, 32060)
 
         return (False, '')
