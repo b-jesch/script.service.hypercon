@@ -20,7 +20,8 @@ class Connection(object):
             self.__ws.close()
             return (bool(response.get('success', False)), response.get('info', response.get('error', '')))
 
-        except (websocket.error, socket.timeout, socket.error):
+        except (websocket.WebSocketException, socket.timeout, socket.error) as e:
+            kl.writeLog('Communication error: %s' % str(e))
             kl.notifyOSD(32000, 32060)
 
         return (False, '')
