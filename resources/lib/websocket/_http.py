@@ -301,11 +301,13 @@ def read_headers(sock):
             break
         trace(line)
         if not status:
-
-            status_info = line.split(" ", 2)
-            status = int(status_info[1])
-            if len(status_info) > 2:
-                status_message = status_info[2]
+            try:
+                status_info = line.split(" ", 2)
+                status = int(status_info[1])
+                if len(status_info) > 2:
+                    status_message = status_info[2]
+            except ValueError:
+                raise WebSocketException("Invalid header")
         else:
             kv = line.split(":", 1)
             if len(kv) == 2:

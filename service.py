@@ -208,6 +208,7 @@ class Hyperion(object):
                     self.connection.clearAll()
                     self.connection.setColor('#000000')
                     kl.setProperty('hyperion.status', 'off')
+                    xbmc.sleep(500)
                 break
 
             if self.monitor.settingsChanged: self.getSettings()

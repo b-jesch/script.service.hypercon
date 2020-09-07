@@ -18,9 +18,10 @@ class Connection(object):
             self.__ws.send(payload)
             response = json.loads(self.__ws.recv(), encoding='utf-8')
             self.__ws.close()
-            return (bool(response.get('success', False)), response.get('info', response.get('error', '')))
+            return bool(response.get('success', False)), response.get('info', response.get('error', ''))
 
-        except (websocket.error, socket.timeout, socket.error):
+        except (websocket.WebSocketException, socket.timeout, socket.error) as e:
+            kl.writeLog('Communication error: %s' % str(e))
             kl.notifyOSD(32000, 32060)
 
         return (False, '')
