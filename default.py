@@ -33,11 +33,11 @@ def toogle():
     if kl.getProperty('hyperion.status') == 'on':
         connection.setColor('#000000')
         kl.setProperty('hyperion.status', 'off')
-        kl.writeLog('Hyperion service status toggle to off', xbmc.LOGNOTICE)
+        kl.writeLog('Hyperion service status toggle to off', xbmc.LOGINFO)
     else:
         kl.setProperty('hyperion.status', 'on')
         kl.setProperty('hyperion.check', '0')
-        kl.writeLog('Hyperion service status toggle to on', xbmc.LOGNOTICE)
+        kl.writeLog('Hyperion service status toggle to on', xbmc.LOGINFO)
 
 
 if __name__ == '__main__':
@@ -52,7 +52,8 @@ if __name__ == '__main__':
             effects = connection.fetchEffectList()
             if effects:
                 for names in effects:
-                    li = xbmcgui.ListItem(label=names, iconImage=defaultIcon)
+                    li = xbmcgui.ListItem(label=names)
+                    li.setArt({'icon': defaultIcon})
                     li.setProperty('effect', names)
                     items.append(li)
                 _idx = dialog.select(LS(32015), items)
@@ -64,27 +65,33 @@ if __name__ == '__main__':
         elif c_args['action'] == 'toggle': toogle()
         elif c_args['action'] == 'check':
 
-            li = xbmcgui.ListItem(label=LS(32040), label2=moodcolor_1, iconImage=icon_1)
+            li = xbmcgui.ListItem(label=LS(32040), label2=moodcolor_1)
+            li.setArt({'icon': icon_1})
             li.setProperty('action', 'setcolor')
             li.setProperty('param', moodcolor_1)
             items.append(li)
-            li = xbmcgui.ListItem(label=LS(32041), label2=moodcolor_2, iconImage=icon_2)
+            li = xbmcgui.ListItem(label=LS(32041), label2=moodcolor_2)
+            li.setArt({'icon': icon_2})
             li.setProperty('action', 'setcolor')
             li.setProperty('param', moodcolor_2)
             items.append(li)
-            li = xbmcgui.ListItem(label=LS(32042), label2=moodcolor_3, iconImage=icon_3)
+            li = xbmcgui.ListItem(label=LS(32042), label2=moodcolor_3)
+            li.setArt({'icon': icon_3})
             li.setProperty('action', 'setcolor')
             li.setProperty('param', moodcolor_3)
             items.append(li)
-            li = xbmcgui.ListItem(label=LS(32045), label2=effect_1, iconImage=defaultIcon)
+            li = xbmcgui.ListItem(label=LS(32045), label2=effect_1)
+            li.setArt({'icon': defaultIcon})
             li.setProperty('action', 'effect')
             li.setProperty('param', effect_1)
             items.append(li)
-            li = xbmcgui.ListItem(label=LS(32046), label2=effect_2, iconImage=defaultIcon)
+            li = xbmcgui.ListItem(label=LS(32046), label2=effect_2)
+            li.setArt({'icon': defaultIcon})
             li.setProperty('action', 'effect')
             li.setProperty('param', effect_2)
             items.append(li)
-            li = xbmcgui.ListItem(label=LS(32047), label2=effect_3, iconImage=defaultIcon)
+            li = xbmcgui.ListItem(label=LS(32047), label2=effect_3)
+            li.setArt({'icon': defaultIcon})
             li.setProperty('action', 'effect')
             li.setProperty('param', effect_3)
             items.append(li)
@@ -106,12 +113,13 @@ if __name__ == '__main__':
 
     if not switchDirectly:
         li = xbmcgui.ListItem(label=LS(32058),
-                              label2=LS(32059) % {'on': LS(32043), 'off': LS(32057)}.get(kl.getProperty('hyperion.status')),
-                              iconImage=defaultIcon)
+                              label2=LS(32059) % {'on': LS(32043), 'off': LS(32057)}.get(kl.getProperty('hyperion.status')))
+        li.setArt({'icon': defaultIcon})
         li.setProperty('action', 'toggle')
         li.setProperty('param', '')
         items.append(li)
-        li = xbmcgui.ListItem(label=LS(32050), label2=LS(32044), iconImage=defaultIcon)
+        li = xbmcgui.ListItem(label=LS(32050), label2=LS(32044))
+        li.setArt({'icon': defaultIcon})
         li.setProperty('action', 'clearall')
         li.setProperty('param', '100')
         items.append(li)

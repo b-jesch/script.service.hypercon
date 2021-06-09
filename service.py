@@ -124,7 +124,6 @@ class Hyperion(object):
         kl.writeLog('Effect 2:             %s' % self.effect_2)
         kl.writeLog('Effect 3:             %s' % self.effect_3)
 
-
     def getPlayerProperties(self):
         query = {
                 "method": "Player.GetActivePlayers",
@@ -196,7 +195,7 @@ class Hyperion(object):
             self.player.eventChanged = False
 
     def start(self):
-        kl.writeLog('Starting Hyperion service script', xbmc.LOGNOTICE)
+        kl.writeLog('Starting Hyperion service script', xbmc.LOGINFO)
 
         if self.enableHyperion:
             kl.setProperty('hyperion.status', 'on')
@@ -228,5 +227,5 @@ class Hyperion(object):
 
 
 if __name__ == '__main__':
-        hyperion = Hyperion()
-        del hyperion
+    hyperion = Hyperion()
+    del hyperion
