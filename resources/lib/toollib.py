@@ -2,6 +2,7 @@ import random
 import xbmcgui
 import xbmcaddon
 import xbmc
+import xbmcvfs
 import json
 import re
 import platform
@@ -14,7 +15,7 @@ ADDON = xbmcaddon.Addon()
 ADDON_ID = ADDON.getAddonInfo('id')
 ADDON_NAME = ADDON.getAddonInfo('name')
 ADDON_VERSION = ADDON.getAddonInfo('version')
-ADDON_PATH = xbmc.translatePath(ADDON.getAddonInfo('path'))
+ADDON_PATH = xbmcvfs.translatePath(ADDON.getAddonInfo('path'))
 LS = ADDON.getLocalizedString
 
 # Constants
